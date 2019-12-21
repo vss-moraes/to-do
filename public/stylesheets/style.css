@@ -1,8 +1,19 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.card-body {
+  display: flex;
 }
 
-a {
-  color: #00B7FF;
+.finalizar {
+  margin-left:auto
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  margin-bottom: 50px;
+}
+
+body {
+  background-color: lightgreen;
 }
