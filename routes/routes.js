@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var tarefas = []
+let tarefas = new Array();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Gerenciador de Tarefas' });
+  res.render('index', {tarefas: tarefas});
 });
 
 router.get('/adicionar', function(req, res, next) {
@@ -13,8 +12,13 @@ router.get('/adicionar', function(req, res, next) {
 })
 
 router.post('/adicionar', function(req, res, next) {
-  tarefas.push(req.body)
-  res.render('index', { title: 'Gerenciador de Tarefas' })
+  tarefas.push({
+    descricao: req.body.descricao,
+    prioridade: req.body.prioridade,
+    prazo: req.body.prazo
+  })
+  console.log(tarefas)
+  res.redirect('/')
 })
 
 module.exports = router;
