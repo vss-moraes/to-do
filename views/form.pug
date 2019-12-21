@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  .container
+  .jumbotron
     h1 Nova Tarefa
-
+  .container
     form(action="")
       .form-group.row
         label.col-sm-2.col-form-label(for='#descricao') Descrição:
@@ -21,4 +21,4 @@ block content
         label.col-sm-2.col-form.label(for='prazo') Prazo:
         .col-sm-10.input-group.date#datetimepicker
           input.form-control#prazo(type='date' name="prazo")
-      button.btn.btn-primary(type='submit') Salvar
+      button.btn-lg.btn-primary(type='submit') Salvar
