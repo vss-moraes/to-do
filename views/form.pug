@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    h1 Nova Tarefa
+
+    form(action="")
+      .form-group.row
+        label.col-sm-2.col-form-label(for='#descricao') Descrição:
+        .col-sm-10
+          input.form-control#descricao(type='text' name='descricao')
+      .form-group.row
+        label.col-sm-2.col-form-label(for='#prioridade') Prioridade:
+        .col-sm-10
+          select.form-control#prioridade(name='prioridade')
+            option(selected='true') Escolha...
+            option(value='1') Baixa
+            option(value='2') Média
+            option(value='3') Alta
+      .form-group.row
+        label.col-sm-2.col-form.label(for='prazo') Prazo:
+        .col-sm-10.input-group.date#datetimepicker
+          input.form-control#prazo(type='date' name="prazo")
+      button.btn.btn-primary(type='submit') Salvar

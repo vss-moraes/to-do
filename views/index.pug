@@ -2,6 +2,7 @@ extends layout
 
 block content
     .container
+      h1 Lista de Tarefas
       .card
         .card-body
           .form-check
@@ -10,4 +11,4 @@ block content
               h5 Descrição da tarefa
           i.fas.fa-trash-alt.ml-auto
 
-      button.btn.btn-primary.ml-auto Adicionar Tarefa
+      a.btn.btn-primary.ml-auto(href='adicionar') Adicionar Tarefa
