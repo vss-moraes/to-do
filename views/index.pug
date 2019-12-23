@@ -4,11 +4,6 @@ block content
   .jumbotron
     h1 Lista de Tarefas
   .container
-    .alert.alert-success.alert-dismissible.fade.show(role="alert" hidden) 
-      strong Tarefa removida com sucesso
-      button.close(data-dismiss="alert" aria-label="Close")
-        span(aria-hidden='true') &times;
-
     each tarefa in tarefas
       .card(id='card' + tarefas.indexOf(tarefa))
         .card-body
@@ -26,9 +21,5 @@ block content
         url: '/deletar',
         type: 'DELETE',
         data: {index: id},
-        success: function (result) {
-          console.log("UÉ")
-          $('.alert').toggle(500);
-        }
       })
     }
