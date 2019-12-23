@@ -17,10 +17,10 @@ router.post('/adicionar', function(req, res, next) {
 })
 
 router.delete('/deletar', (req, res, next) => {
-  console.log("Chamou no back");
-  tarefas = tarefas.splice(req.body.index, 1);
-  console.log(tarefas);
-  res.sendStatus(200)
+  if (tarefas.splice(req.body.index, 1)){
+    res.sendStatus(200)
+  };
+  res.sendStatus(500)
 })
 
 module.exports = router;
