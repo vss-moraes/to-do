@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let tarefas = new Array();
+let tarefas = []
 
 router.get('/', function(req, res, next) {
   res.render('index', {tarefas: tarefas});
@@ -12,13 +12,15 @@ router.get('/adicionar', function(req, res, next) {
 })
 
 router.post('/adicionar', function(req, res, next) {
-  tarefas.push({
-    descricao: req.body.descricao,
-    prioridade: req.body.prioridade,
-    prazo: req.body.prazo
-  })
-  console.log(tarefas)
+  tarefas.push(req.body.descricao);
   res.redirect('/')
+})
+
+router.delete('/deletar', (req, res, next) => {
+  console.log("Chamou no back");
+  tarefas = tarefas.splice(req.body.index, 1);
+  console.log(tarefas);
+  res.sendStatus(200)
 })
 
 module.exports = router;

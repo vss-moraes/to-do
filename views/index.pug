@@ -4,17 +4,25 @@ block content
   .jumbotron
     h1 Lista de Tarefas
   .container
-    script.
-      console.log(tarefas)
     each tarefa in tarefas
-      .card
+      .card(id='card' + tarefas.indexOf(tarefa))
         .card-body
-          .form-check
-            input.form-check-input(type='checkbox', value='', id="defaultCheck1")
-            label.form-check-label(for='defaultCheck1') 
-              h5= tarefa.descricao
-          i.fas.fa-trash-alt.ml-auto
+          h5= tarefa
+          i.fas.fa-trash-alt.ml-auto(onclick='deletar("' + tarefas.indexOf(tarefa) +'")')
     else
       h1 Nenhuma tarefa pendente
 
     a.btn.btn-primary.ml-auto(href='adicionar') Adicionar Tarefa
+
+  script.
+    function deletar(id) {
+      $(document.getElementById('card' + id)).remove();
+      $.ajax({
+        url: '/deletar',
+        type: 'DELETE',
+        data: {index: id},
+        success: function (result) {
+          console.log("Deu certo?")
+        }
+      })
+    }
